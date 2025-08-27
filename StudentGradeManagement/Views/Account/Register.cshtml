@@ -1,0 +1,52 @@
+@model StudentGradeManagement.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="register-box" style="background:white; padding:30px 40px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.2); width:100%; max-width:400px;">
+        <h2 class="text-center">Register</h2>
+
+        <form method="post" asp-action="Register">
+            @Html.AntiForgeryToken()
+            <div class="form-group mb-3">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" required />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" required />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+
+        @if (ViewData.ModelState.ErrorCount > 0)
+        {
+            <ul class="text-danger mt-2">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        }
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <p class="text-success text-center mt-2">@TempData["SuccessMessage"]</p>
+        }
+
+        <div class="login-link text-center mt-3">
+            Already have an account? 
+            <a asp-controller="Account" asp-action="Login">Login Here</a>
+        </div>
+    </div>
+</div>

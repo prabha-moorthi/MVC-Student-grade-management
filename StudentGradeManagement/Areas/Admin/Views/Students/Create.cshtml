@@ -1,0 +1,106 @@
+@model StudentGradeManagement.Models.Student
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>Add Student</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    
+    <div class="form-group mb-3">
+        <label asp-for="StudentId"></label>
+        <input asp-for="StudentId" class="form-control" />
+        <span asp-validation-for="StudentId" class="text-danger"></span>
+    </div>
+
+   
+    <div class="form-group mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    
+    <h5>Term 1 Marks</h5>
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Tamil_T1"></label>
+            <input asp-for="Tamil_T1" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="English_T1"></label>
+            <input asp-for="English_T1" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Maths_T1"></label>
+            <input asp-for="Maths_T1" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Science_T1"></label>
+            <input asp-for="Science_T1" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Social_T1"></label>
+            <input asp-for="Social_T1" class="form-control" />
+        </div>
+    </div>
+
+    
+    <h5>Term 2 Marks</h5>
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Tamil_T2"></label>
+            <input asp-for="Tamil_T2" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="English_T2"></label>
+            <input asp-for="English_T2" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Maths_T2"></label>
+            <input asp-for="Maths_T2" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Science_T2"></label>
+            <input asp-for="Science_T2" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Social_T2"></label>
+            <input asp-for="Social_T2" class="form-control" />
+        </div>
+    </div>
+
+   
+    <h5>Term 3 Marks</h5>
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Tamil_T3"></label>
+            <input asp-for="Tamil_T3" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="English_T3"></label>
+            <input asp-for="English_T3" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Maths_T3"></label>
+            <input asp-for="Maths_T3" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Science_T3"></label>
+            <input asp-for="Science_T3" class="form-control" />
+        </div>
+        <div class="col">
+            <label asp-for="Social_T3"></label>
+            <input asp-for="Social_T3" class="form-control" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-area="Admin" asp-controller="Students" asp-action="List" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

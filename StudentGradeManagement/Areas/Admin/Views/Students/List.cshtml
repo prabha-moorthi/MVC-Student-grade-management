@@ -1,0 +1,74 @@
+@model IEnumerable<StudentGradeManagement.Models.Student>
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Student List";
+}
+
+<h2 class="mb-4">All Students</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th rowspan="2">Student ID</th>
+            <th rowspan="2">Name</th>
+            <th colspan="5" class="text-center">Term 1</th>
+            <th colspan="5" class="text-center">Term 2</th>
+            <th colspan="5" class="text-center">Term 3</th>
+            <th rowspan="2">Actions</th>
+        </tr>
+        <tr>
+            <th>Tamil</th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Social</th>
+
+            <th>Tamil</th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Social</th>
+
+            <th>Tamil</th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Social</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentId</td>
+                <td>@student.Name</td>
+
+                <td>@student.Tamil_T1</td>
+                <td>@student.English_T1</td>
+                <td>@student.Maths_T1</td>
+                <td>@student.Science_T1</td>
+                <td>@student.Social_T1</td>
+
+                <td>@student.Tamil_T2</td>
+                <td>@student.English_T2</td>
+                <td>@student.Maths_T2</td>
+                <td>@student.Science_T2</td>
+                <td>@student.Social_T2</td>
+
+                <td>@student.Tamil_T3</td>
+                <td>@student.English_T3</td>
+                <td>@student.Maths_T3</td>
+                <td>@student.Science_T3</td>
+                <td>@student.Social_T3</td>
+
+                <td>
+                    <a asp-area="Admin" asp-controller="Students" asp-action="Edit" asp-route-studentId="@student.StudentId" class="btn btn-warning btn-sm mb-1">Edit</a>
+                    <a asp-area="Admin" asp-controller="Students" asp-action="Details" asp-route-studentId="@student.StudentId" class="btn btn-info btn-sm mb-1">Details</a>
+                    <a asp-area="Admin" asp-controller="Students" asp-action="Delete" asp-route-studentId="@student.StudentId" class="btn btn-danger btn-sm mb-1">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+@{
+    Layout = "_UserLayout";
+    ViewData["Title"] = "Parent Portal";
+}
+
+<h2>Welcome to Student Grade Management</h2>
+<hr />
+
+<form method="post" asp-action="Index">
+    <div class="form-group">
+        <label>Enter Student ID:</label>
+        <input type="text" name="studentId" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@if(!ViewData.ModelState.IsValid)
+{
+    <div class="text-danger mt-2">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div>@error.ErrorMessage</div>
+        }
+    </div>
+}

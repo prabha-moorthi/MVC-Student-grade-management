@@ -1,0 +1,31 @@
+@model StudentGradeManagement.Models.Student
+@{
+    Layout = "_UserLayout"; 
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2>Welcome, @Model.Name!</h2>
+    </div>
+
+   
+    <div class="alert alert-info text-center">
+        @ViewBag.Notification
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Student ID:</strong> @Model.StudentId</p>
+            <p><strong>Name:</strong> @Model.Name</p>
+
+            <h5>Term 1 Marks</h5>
+            <p>Tamil: @Model.Tamil_T1, English: @Model.English_T1, Maths: @Model.Maths_T1, Science: @Model.Science_T1, Social: @Model.Social_T1</p>
+
+            <h5>Term 2 Marks</h5>
+            <p>Tamil: @Model.Tamil_T2, English: @Model.English_T2, Maths: @Model.Maths_T2, Science: @Model.Science_T2, Social: @Model.Social_T2</p>
+
+            <h5>Term 3 Marks</h5>
+            <p>Tamil: @Model.Tamil_T3, English: @Model.English_T3, Maths: @Model.Maths_T3, Science: @Model.Science_T3, Social: @Model.Social_T3</p>
+        </div>
+    </div>
+</div>
