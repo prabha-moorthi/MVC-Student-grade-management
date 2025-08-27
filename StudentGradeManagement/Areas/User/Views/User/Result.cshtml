@@ -1,0 +1,43 @@
+@model StudentGradeManagement.Models.Student
+@{
+    Layout = "_UserLayout";
+    ViewData["Title"] = "Student Result";
+}
+
+<h2>Student Result</h2>
+<hr />
+
+<table class="table table-bordered">
+    <tr><th>Student ID</th><td>@Model.StudentId</td></tr>
+    <tr><th>Name</th><td>@Model.Name</td></tr>
+
+    <tr><th colspan="6">Term 1 Marks</th></tr>
+    <tr>
+        <td>Tamil</td><td>@Model.Tamil_T1</td>
+        <td>English</td><td>@Model.English_T1</td>
+        <td>Maths</td><td>@Model.Maths_T1</td>
+        <td>Science</td><td>@Model.Science_T1</td>
+        <td>Social</td><td>@Model.Social_T1</td>
+    </tr>
+
+    <tr><th colspan="6">Term 2 Marks</th></tr>
+    <tr>
+        <td>Tamil</td><td>@Model.Tamil_T2</td>
+        <td>English</td><td>@Model.English_T2</td>
+        <td>Maths</td><td>@Model.Maths_T2</td>
+        <td>Science</td><td>@Model.Science_T2</td>
+        <td>Social</td><td>@Model.Social_T2</td>
+    </tr>
+
+    <tr><th colspan="6">Term 3 Marks</th></tr>
+    <tr>
+        <td>Tamil</td><td>@Model.Tamil_T3</td>
+        <td>English</td><td>@Model.English_T3</td>
+        <td>Maths</td><td>@Model.Maths_T3</td>
+        <td>Science</td><td>@Model.Science_T3</td>
+        <td>Social</td><td>@Model.Social_T3</td>
+    </tr>
+</table>
+
+<div class="alert alert-info">@ViewBag.Notification</div>
+<a asp-action="Index" class="btn btn-secondary">Back</a>
